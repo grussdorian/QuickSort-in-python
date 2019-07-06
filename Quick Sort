@@ -1,0 +1,15 @@
+def QSort(a,low,high):
+	if(low<high):
+		pIndex = partition(a,low,high)
+		QSort(a,low,pIndex-1)
+		QSort(a,pIndex+1,high)
+
+def partition(a,low,high):
+	pIndex = low
+	pivot = a[high]
+	for i in range(low,high,1):
+		if(a[i]<=pivot):
+			a[pIndex],a[i] = a[i],a[pIndex]
+			pIndex +=1
+	a[pIndex],a[high] = a[high],a[pIndex]
+	return pIndex
